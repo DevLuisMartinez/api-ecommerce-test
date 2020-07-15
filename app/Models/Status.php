@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\Cart;
 use Illuminate\Database\Eloquent\Model;
 use SoftDeletes;
 
 class Status extends Model{
     
-    public function cart(){
+    protected $table = 'status';
+
+    public function carts(){
         
         return $this->hasMany(Cart::class);
     }

@@ -18,3 +18,5 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/products', 'ProductController@index');
+$router->post('/cart/products', 'CartController@addProductsCart');
+$router->post('/cart', 'CartController@checkoutCart');

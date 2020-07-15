@@ -17,4 +17,5 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
         return $this->model->all();
     }
+
 }

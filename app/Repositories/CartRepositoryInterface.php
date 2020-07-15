@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Cart;
 
-interface EloquentRepositoryInterface {
+interface CartRepositoryInterface {
 
     public function all();
 
@@ -14,5 +14,8 @@ interface EloquentRepositoryInterface {
 
     public function update(array $attributes, int $id);
 
-    public function delete(int $id);
+    public function addProductsCart(array $attributes);
+
+    public function getLastRecord();
 }
+

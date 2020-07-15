@@ -18,4 +18,25 @@ class BaseRepository implements EloquentRepositoryInterface {
 
         return $this->model->all();
     }
+
+    public function find(int $id){
+
+        return $this->model->findOrFail($id);
+    }
+
+    public function create( array $attributes ){
+
+        return $this->model->create($attributes);
+    }
+
+    public function update( array $attributes, int $id){
+
+        $model = $this->find($id);
+        return $model->fill($attributes)->save();
+    }
+
+    public function delete(int $id){
+        
+        return $this->find($id)->delete();
+    }
 }

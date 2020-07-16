@@ -35,12 +35,12 @@ class CartRepository extends BaseRepository implements CartRepositoryInterface{
 
     public function addProductsCart( array $attribute){
 
-        $this->getLastRecord()->products()->attach($attribute['products']);
+        return $this->getLastRecord()->products()->attach($attribute['products']);
     }
 
     public function getLastRecord(){
 
-        return $this->model->latest('created_at')->first();
+        return $this->model->with('products')->latest('created_at')->where('status_id','=', '1')->first();
     }
 
 

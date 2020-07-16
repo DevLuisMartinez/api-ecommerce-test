@@ -31,6 +31,11 @@ class CartController extends Controller
         return response()->json($cart, 200);
     }
 
+    public function getCurrentCart(){
+
+        return $this->cartRepository->getLastRecord();
+    }
+
     public function addProductsCart(Request $request){
         
         $last_cart = $this->cartRepository->getLastRecord();
@@ -38,11 +43,17 @@ class CartController extends Controller
         if(is_null($last_cart) || Str::lower($last_cart->status->description) == 'pending'){
 
             $cart = $this->cartRepository->addProductsCart($request->all());
-            return response()->json($cart, 200);
+            return response()->json(['request' => $request->all()], 200);
         }
 
         $cart = $this->cartRepository->create($request->all());
         return response()->json($cart, 200);
+    }
+
+    public function updateProductInCart(Request $request, $idCart, $idProduct){
+
+        $cart = $this->cartRepository->addProductsCart($request->all());
+        return response()->json($cart,200);
     }
 
     public function checkoutCart(){

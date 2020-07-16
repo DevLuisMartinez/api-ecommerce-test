@@ -17,6 +17,10 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+//Product Route
 $router->get('/products', 'ProductController@index');
+
+//Cart Route
+$router->get('/cart/current', 'CartController@getCurrentCart');
 $router->post('/cart/products', 'CartController@addProductsCart');
-$router->post('/cart', 'CartController@checkoutCart');
+$router->post('/cart/checkout', 'CartController@checkoutCart');

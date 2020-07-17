@@ -33,8 +33,13 @@ class CartRepository extends BaseRepository implements CartRepositoryInterface{
         return $this->model->update($attributes, $id);
     }
 
-    public function addProductsCart( array $attribute){
+    public function updateProductsCart(array $attribute){
 
+        $this->getLastRecord()->products()->detach();
+        return $this->addProductsCart($attribute);
+    }
+
+    public function addProductsCart( array $attribute){
         return $this->getLastRecord()->products()->attach($attribute['products']);
     }
 

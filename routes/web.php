@@ -23,4 +23,5 @@ $router->get('/products', 'ProductController@index');
 //Cart Route
 $router->get('/cart/current', 'CartController@getCurrentCart');
 $router->post('/cart/products', 'CartController@addProductsCart');
+$router->post('/cart/products/update', 'CartController@updateProductInCart');
 $router->post('/cart/checkout', 'CartController@checkoutCart');

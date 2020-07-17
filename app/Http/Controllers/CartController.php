@@ -50,9 +50,9 @@ class CartController extends Controller
         return response()->json($cart, 200);
     }
 
-    public function updateProductInCart(Request $request, $idCart, $idProduct){
+    public function updateProductInCart(Request $request){
 
-        $cart = $this->cartRepository->addProductsCart($request->all());
+        $cart = $this->cartRepository->updateProductsCart($request->all());
         return response()->json($cart,200);
     }
 
